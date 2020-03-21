@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      size="default"
+    ></button>
+    <view class="userinfo-nickname-wrapper">
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view>
+
+  <!-- 物资交流 -->
+  <view class="uploader">
+    <navigator class="uploader-text" url="../exchange/centre">
+      <text>交流中心</text>
+    </navigator>
+  </view>
+  
+  <!-- 物资注册 -->
+  <view class="uploader">
+    <navigator class="uploader-text" url="../exchange/register">
+      <text>物资注册</text>
+    </navigator>
+  </view>
+  
+  <!-- 疫情地图 -->
+  <view class="uploader">
+    <navigator class="uploader-text" url="../map/map">
+      <text>疫情地图</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="developer">
+  <text class="developer-text">圣安德鲁斯大学学者联合会</text>
+</view>

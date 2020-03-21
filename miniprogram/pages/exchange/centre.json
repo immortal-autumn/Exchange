@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "~交流中心♥~",
+  "usingComponents": {
+    "exchange-centre": "/components/exchange-centre/exchange-centre"
+  }
+}
