@@ -11,7 +11,9 @@
       size="default"
     ></button>
     <view class="userinfo-nickname-wrapper">
-      <button class="userinfo-nickname" bindtap="onGetOpenid"> ~★解析 重构 典开★~ </button>
+      <button class="userinfo-nickname" bindtap="onGetOpenid"> ~★解析 重构 典开★~
+      <br/><text hidden="{{info_vis}}">欢迎你，{{nickname}}</text>
+      </button>
     </view>
   </view>
 
@@ -29,8 +31,8 @@
     </navigator>
   </view>
   
-  <!-- 疫情地图 -->
-  <view class="uploader">
+  <!-- 疫情地图 -> 待制作 -->
+  <view class="uploader" hidden="true">
     <navigator class="uploader-text" url="../map/map">
       <text>疫情地图</text>
     </navigator>
