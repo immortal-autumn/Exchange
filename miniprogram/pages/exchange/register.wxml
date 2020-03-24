@@ -21,7 +21,7 @@
     <view class="weui-cells__title">物资名称</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
-          <input class="weui-input" maxlength="50" auto-focus placeholder="物资名称"/>
+          <input class="weui-input" maxlength="50" auto-focus placeholder="物资名称" bindinput="name"/>
       </view>
     </view>
   </view>
@@ -32,7 +32,7 @@
     <view class="weui-cells__title">物资数量</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
-          <input class="weui-input" maxlength="10" auto-focus placeholder="物资数量"/>
+          <input class="weui-input" maxlength="10" auto-focus placeholder="物资数量" bindinput="amount"/>
       </view>
     </view>
   </view>
