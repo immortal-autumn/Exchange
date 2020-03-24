@@ -1,29 +1,9 @@
-<!--centre.wxml-->
-<!--页面的实现，相当于html-->
-<view class="msg-box">
-<!--留言区-->
-<view class="send-box">
-<input value='{{inputVal}}' bindinput='changeInputVal' class="input" type="text" placeholder='请留言...' placeholder-class='place-input' />
-<button size='mini' type="primary" bindtap='addMsg'>添加</button><!--bindtap相当于onclick-->
-</view>
-<text>刷新后添加的数据</text>
-<text class="msg-info" wx:if="{{msgData.length==0}}">暂无留言...^_^</text> <!--当留言列表为空时显示本句-->
-<!--留言列表 -->
-<view class="list-view">
-<view class="item" wx:for="{{msgData}}" wx:key="{{index}}"><!--循环显示msgData中的数据，key是必须的，否则会出现警告-->
-<text class='text1'>{{item.msg}}</text> <!--item是固定的，msg对应msgData中的名-->
-<icon data-index="{{index}}" class="close-btn" bindtap='deleMsg' type="cancel"></icon>
-</view>
-</view>
-
-<text>从storage取出的数据</text>
-<text class="msg-info" wx:if="{{msgData1.length==0}}">暂无留言...^_^</text> <!--当留言列表为空时显示本句-->
-<view class="list-view">
-<view class="item" wx:for="{{msgData1}}" wx:key="{{index}}"><!--循环显示msgData中的数据，key是必须的，否则会出现警告-->
-<text class='text1'>{{item.msg}}</text> <!--item是固定的，msg对应msgData中的名-->
-<icon data-index="{{index}}" class="close-btn" bindtap='deleMsg1' type="cancel"></icon>
-</view>
-</view>
-<button type="primary" size='mini' bindtap='showStorage'>storage</button>
-
+<view class="exchange-centre">
+  <!-- <view class='noDataView' hidden='{{noDataViewHidden}}'>{{noData}}</view>
+  <view class='itemList' wx:for="{{items}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="items"> 
+    <view class='itemType'>类别{{items.type}}</view>
+    <view class='itemName'>名称{{items.name}}</view>
+    <view class='itemAmount'>数量{{items.amount}}</view>
+    <view class='itemDescription'>联系方式{{items.contact}}</view>
+  </view> -->
 </view>

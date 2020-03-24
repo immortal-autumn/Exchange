@@ -37,6 +37,17 @@
     </view>
   </view>
 
+  <!-- 联系方式 -->
+  <view class="page-section">
+    <!-- catagory -->
+    <view class="weui-cells__title">联系方式</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="15" auto-focus placeholder="联系方式" bindinput="contactInfo"/>
+      </view>
+    </view>
+  </view>
+
   <!-- Submission button -->
   <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
       disabled="{{disabled}}" bindtap="submission" hover-class="other-button-hover" class="submit"> Submit</button> 

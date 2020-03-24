@@ -11,7 +11,8 @@ Page({
     loading: false,
     register_catagory: '',
     register_name: '',
-    register_amount: 0
+    register_amount: 0,
+    register_contact: '',
   },
 
   // Only store the index value to storage for space complexity
@@ -31,6 +32,12 @@ Page({
   amount: function (e) {
     this.setData({
       register_amount: e.detail.value
+    })
+  },
+
+  contactInfo: function(e) {
+    this.setData({
+      register_contact: e.detail.value
     })
   },
 
@@ -58,13 +65,21 @@ Page({
       })
       return
     }
+    if (this.data.contactInfo == '') {
+      wx.showToast({
+        title: '联系方式输入错误！',
+        icon: 'none'
+      })
+      return
+    }
     // submission function
     const db = wx.cloud.database()
     db.collection("Item").add({
       data: {
         type: this.data.register_catagory,
         name: this.data.register_name,
-        amount: this.data.register_amount
+        amount: this.data.register_amount,
+        contactInfo: this.data.register_contact
       },
       success: function(res) {
         wx.showToast({
