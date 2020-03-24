@@ -1,6 +1,6 @@
 /* miniprogram/pages/exchange/register.wxss */
 
-@import "../../style/weui.wxss"
+@import "../../style/weui.wxss";
 
 .page-section {
   margin: 20rpx;

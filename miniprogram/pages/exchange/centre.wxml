@@ -1,10 +1,12 @@
-<view class="exchange-centre">
+<view class="container">
   <view class='noDataView' hidden='{{noDataViewHidden}}'>{{noData}}</view>
   <view class='itemList' wx:for="{{items}}" wx:key="index" wx:for-index="index" wx:for-item="items"> 
-    <view class='itemIndex'>条目 - {{index+1}}</view>
-    <view class='itemType'>类别 - {{items.type}}</view>
-    <view class='itemName'>名称 - {{items.name}}</view>
-    <view class='itemAmount'>数量 - {{items.amount}}</view>
-    <view class='itemDescription'>联系方式 - {{items.contactInfo}}</view>
+    <view class='itemBox'>
+      <view class='itemIndex'>#{{index+1}}</view>
+      <view class='itemType'>类别: {{items.type}}</view>
+      <view class='itemName'>名称: {{items.name}}</view>
+      <view class='itemAmount'>数量: {{items.amount}}</view>
+      <view class='itemDescription'>联系方式: {{items.contactInfo}}</view>
+    </view>
   </view>
 </view>

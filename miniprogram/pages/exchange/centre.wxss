@@ -1,10 +1,15 @@
-.container {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding-top: 80rpx;
-  padding-bottom: 30rpx;
+@import "../../style/weui.wxss";
+
+page {
+  background-color: seashell;
+  font-family: 楷体;
+}
+
+.noDataView {
+  padding-top: 50%;
+  font-size: large;
+}
+
+.itemBox {
+  padding-top: 50rpx;
 }
