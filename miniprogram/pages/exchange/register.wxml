@@ -39,8 +39,5 @@
 
   <!-- Submission button -->
   <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
-      disabled="{{disabled}}" bindtap="submission" hover-class="other-button-hover"> Submit</button> 
-  <view>
-  
-  </view>
+      disabled="{{disabled}}" bindtap="submission" hover-class="other-button-hover" class="submit"> Submit</button> 
 </view>

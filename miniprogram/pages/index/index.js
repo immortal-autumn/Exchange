@@ -11,13 +11,28 @@ Page({
   },
 
   onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
-      })
-      return
-    }
-
+    // 登录
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        wx.showToast({
+          title: '登陆成功.jpg',
+          duration: 1000,
+          mask: true
+        })
+        app.globalData.openid = res.result.openid
+      },
+      fail: err => {
+        wx.showToast({
+          title: '登陆失败，建议重新登录.jpg',
+          icon: 'fail',
+          duration: 1000,
+          icon: 'none',
+          mask: true
+        })
+      }
+    })
     // 获取用户信息
     wx.getSetting({
       success: res => {

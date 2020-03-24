@@ -5,3 +5,11 @@
 .page-section {
   margin: 20rpx;
 }
+
+.submit {
+  margin-top: 20px;
+  background-color: #4CAF50; /* Green */
+  text-align: center;
+  font-size: 16px;
+  border-radius: 98rpx; 
+}

@@ -6,7 +6,7 @@ Page({
   data: {
     array: ["医用物品", "消毒用品", "生活用品", "其他用品"],
     disabled: false,
-    defaultSize: 'default',
+    defaultSize: "default",
     plain: false,
     loading: false,
     register_catagory: '',
@@ -18,7 +18,7 @@ Page({
   bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value,
-      register_catagory: e.detail.value
+      register_catagory: e.detail.value,
     })
   },
 
@@ -35,6 +35,29 @@ Page({
   },
 
   submission: function () {
+    let success = 0
+    // Check input
+    if (this.data.register_name == '') {
+      wx.showToast({
+        title: '名称输入错误！',
+        icon: 'none'
+      })
+      return
+    }
+    if (this.data.register_amount == 0) {
+      wx.showToast({
+        title: '数量输入错误！',
+        icon: 'none'
+      })
+      return
+    }
+    if (this.data.register_catagory == '') {
+      wx.showToast({
+        title: '类别输入错误！',
+        icon: 'none'
+      })
+      return
+    }
     // submission function
     const db = wx.cloud.database()
     db.collection("Item").add({
