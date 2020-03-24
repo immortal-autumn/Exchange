@@ -1,2 +1,46 @@
 <!--miniprogram/pages/exchange/register.wxml-->
-<text>miniprogram/pages/exchange/register.wxml</text>
+<view class="page-body">
+  <!-- input area-->
+  <view class="page-section">
+    <!-- catagory -->
+    <view class="weui-cells__title">物资类别</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="weui-input">
+              物资类别：{{array[index]}}
+            </view>
+          </picker>
+      </view>
+    </view>
+  </view>
+
+  <!-- name -->
+  <view class="page-section">
+    <!-- catagory -->
+    <view class="weui-cells__title">物资名称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="50" auto-focus placeholder="物资名称"/>
+      </view>
+    </view>
+  </view>
+
+  <!-- amount -->
+  <view class="page-section">
+    <!-- catagory -->
+    <view class="weui-cells__title">物资数量</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="10" auto-focus placeholder="物资数量"/>
+      </view>
+    </view>
+  </view>
+
+  <!-- Submission button -->
+  <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
+      disabled="{{disabled}}" bindtap="submission" hover-class="other-button-hover"> Submit</button> 
+  <view>
+  
+  </view>
+</view>
