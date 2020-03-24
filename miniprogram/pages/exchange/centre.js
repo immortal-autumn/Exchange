@@ -6,6 +6,8 @@ Page({
    */
   data: {
     items: [],
+    noDataViewHidden: false,
+    noData: "->没有记录<-"
   },
 
   /**
@@ -16,13 +18,14 @@ Page({
       name: 'fetchDatabase',
       success: res => {
         this.setData({
+          noDataViewHidden: true,
           items: res.result.data
         })
         // console.log(this.data.items) <= Succeed
       },
       fail: res => {
         wx.showToast({
-          title: 'Failed! Please contact admin: Elwin',
+          title: '没有数据!',
           icon: 'none',
           duration: 2000,
           mask: false,
@@ -49,7 +52,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    
   },
 
   /**
