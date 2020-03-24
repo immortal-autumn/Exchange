@@ -79,7 +79,7 @@ Page({
         type: this.data.register_catagory,
         name: this.data.register_name,
         amount: this.data.register_amount,
-        contactInfo: this.data.register_contact
+        contactInfo: this.data.register_contact,
       },
       success: function(res) {
         wx.showToast({

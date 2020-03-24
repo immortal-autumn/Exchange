@@ -15,10 +15,10 @@ Page({
     wx.cloud.callFunction({
       name: 'fetchDatabase',
       success: res => {
-        console.log(res)
         this.setData({
           items: res.result.data
         })
+        // console.log(this.data.items) <= Succeed
       },
       fail: res => {
         wx.showToast({
