@@ -48,6 +48,8 @@ Page({
                 nickname: res.userInfo.nickName,
                 info_vis: false,
               })
+              //Set nickname to global
+              app.globalData.nickName = res.userInfo.nickName
             }
           })
         }
@@ -64,6 +66,7 @@ Page({
         nickname: e.detail.userInfo.nickName,
         info_vis: false,
       })
+      app.globalData.nickName = e.detail.userInfo.nickName
     }
   },
 })

@@ -17,15 +17,22 @@
     </view>
   </view>
 
-  <!-- 物资交流 -->
+  <!-- 领取登记 -->
   <view class="uploader">
+    <navigator class="uploader-text" url="../lovePack/packInfo">
+      <text>防疫包领取登记</text>
+    </navigator>
+  </view>
+
+  <!-- 物资交流 -->
+  <view class="uploader" hidden="true">
     <navigator class="uploader-text" url="../exchange/centre">
       <text>交流中心</text>
     </navigator>
   </view>
   
   <!-- 物资注册 -->
-  <view class="uploader">
+  <view class="uploader" hidden="true">
     <navigator class="uploader-text" url="../exchange/register">
       <text>物资注册</text>
     </navigator>
