@@ -2,10 +2,16 @@
 
 @import "../../style/weui.wxss";
 
+.header {
+  border: 2px #4CAF50;
+  border-style: dotted;
+  text-align: center;
+}
+
 .page-section {
   margin-top: 50%;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .submit {

@@ -1,7 +1,10 @@
 <!--miniprogram/pages/lovePack/packInfo.wxml-->
 <view class="page-body">
+  <view class="header">
+    <text>目前一共领取了 {{amountGet}} 份</text>
+  </view>
   <view class="page-section">
-    <!-- catagory -->
+    <!-- name -->
     <view class="weui-cells__title">姓名 NAME</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
@@ -14,6 +17,14 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
           <input class="weui-input" maxlength="50" auto-focus placeholder="e.g. 1700000000" bindinput="id"/>
+      </view>
+    </view>
+
+    <!-- mail -->
+    <view class="weui-cells__title">学校邮箱 E-MAIL ADDRESS.</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <input class="weui-input" maxlength="50" auto-focus placeholder="e.g. zs@xxx.xx.xx" bindinput="email"/>
       </view>
     </view>
 

@@ -12,6 +12,8 @@ Page({
     loading: false,
     name: '',
     id: '',
+    email: '',
+    amountGet: 0
   },
 
   name: function(e) {
@@ -23,6 +25,12 @@ Page({
   id: function(e) {
     this.setData({
       id: e.detail.value
+    })
+  },
+
+  email: function(e) {
+    this.setData({
+      email: e.detail.value
     })
   },
 
@@ -41,6 +49,13 @@ Page({
       })
       return
     }
+    if (this.data.email == '') {
+      wx.showToast({
+        title: '报邮箱！',
+        icon: 'none',
+      })
+      return
+    }
     const db = wx.cloud.database()
     var date = new Date()
     db.collection("packCollection").add({
@@ -49,6 +64,7 @@ Page({
         nick_name: app.globalData.nickName,
         name: this.data.name,
         id: this.data.id,
+        email: this.data.email
       },
       success: function (res) {
         wx.showToast({
@@ -85,7 +101,6 @@ Page({
         collectionName: 'packCollection',
       },
       success: res => {
-        console.log(res)
         if(res.result.data.length != 0) {
           wx.showModal({
             title: '重复领取提示',
@@ -101,6 +116,15 @@ Page({
         }
       }
     })
+
+    const db = wx.cloud.database()
+    db.collection('packCollection').count().then(
+      res => {
+        this.setData({
+          amountGet: res.total
+        })
+      }
+    )
   },
 
   /**
