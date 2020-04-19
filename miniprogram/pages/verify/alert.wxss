@@ -1,0 +1,20 @@
+/* miniprogram/pages/verify/alert.wxss */
+.openid {
+  text-align: center;
+  font-size: 56px;
+  word-break: break-all;
+  margin-top: 20%;
+}
+
+.time {
+  text-align: center;
+  font-size: 36px;
+  top: 20%
+}
+
+.welcome {
+  text-align: center;
+  color: red;
+  font-family: fantasy;
+  font-size: 30px;
+}

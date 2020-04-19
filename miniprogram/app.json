@@ -8,7 +8,8 @@
     "pages/exchange/centre",
     "pages/exchange/register",
     "pages/map/map",
-    "pages/lovePack/packInfo"
+    "pages/lovePack/packInfo",
+    "pages/verify/alert"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

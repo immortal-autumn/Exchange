@@ -10,21 +10,14 @@ Page({
     defaultSize: "default",
     plain: false,
     loading: false,
-    name: '',
-    id: '',
+    postcode: '',
     email: '',
     amountGet: 0
   },
 
-  name: function(e) {
+  postcode: function(e) {
     this.setData({
-      name: e.detail.value
-    })
-  },
-
-  id: function(e) {
-    this.setData({
-      id: e.detail.value
+      postcode: e.detail.value
     })
   },
 
@@ -35,59 +28,85 @@ Page({
   },
 
   submission: function(e) {
-    if(this.data.name == '') {
+    if (this.data.postcode == '') {
       wx.showToast({
-        title: '写名字！',
-        icon: 'none',
-      })
-      return
-    }
-    if (this.data.id == '') {
-      wx.showToast({
-        title: '报学号！',
+        title: '你没有填写邮编！',
         icon: 'none',
       })
       return
     }
     if (this.data.email == '') {
       wx.showToast({
-        title: '报邮箱！',
+        title: '你没有填写邮箱！',
         icon: 'none',
       })
       return
     }
     const db = wx.cloud.database()
     var date = new Date()
-    db.collection("packCollection").add({
+    wx.cloud.callFunction({
+      name: 'verfication',
       data: {
-        time: date,
-        nick_name: app.globalData.nickName,
-        name: this.data.name,
-        id: this.data.id,
-        email: this.data.email
+        collectionName: 'confirmation',
+        email: this.data.email,
       },
-      success: function (res) {
-        wx.showToast({
-          title: 'Success!',
-          icon: 'success',
-          duration: 2000,
-          mask: false,
-          success: function () {
-            setTimeout(function () {
-              wx.navigateBack({
-                delta: 1
-              })
-            }, 2000)
+      success: res => {
+        var postcode = this.data.postcode.trim().replace(' ', '').toLowerCase()
+        var list = res.result.data
+        if (list.length == 0) {
+          wx.showModal({
+            title: '查无此人',
+            content: '请检查你的格式是否正确',
+            showCancel: false,
+            confirmText: '重新检查'
+          })
+        }
+        for (var i = 0; i < list.length; ++i) {
+          var correct = list[i].Postcode.trim().replace(' ', '').toLowerCase()
+          if (postcode === correct && list[i].Status == 0) {
+            wx.cloud.callFunction({
+              name: 'updateStatus',
+              data: {
+                collectionName: 'confirmation',
+                email: this.data.email,
+              },
+              success: res => {
+                wx.showModal({
+                  title: '认证完成',
+                  content: '你的认证已经完成, 请点击确认并且务必不要退出下个界面！',
+                  showCancel: false,
+                  confirmText: '我要领取',
+                  success(res) {
+                    wx.redirectTo({
+                      url: '../verify/alert',
+                    })
+                  }
+                })
+              },
+              fail: res => {
+                console.log(res)
+              }
+            })
           }
-        })
+          else {
+            if (postcode !== correct) {
+              wx.showModal({
+                title: '认证失败',
+                content: '你的邮编似乎不对啊！！',
+              })
+            }
+            else {
+              wx.showModal({
+                title: '认证失败',
+                content: '你似乎已经领取过了你的健康包！',
+              })
+            }
+          }
+        }
       },
-      fail: function (res) {
-        wx.showToast({
-          title: 'Failed...',
-          duration: 2000,
-          mask: true
-        })
-      },
+      fail: err => {
+        console.log(err)
+      }
     })
   },
 
@@ -96,35 +115,19 @@ Page({
    */
   onLoad: function (options) {
     wx.cloud.callFunction({
-      name: 'checkRegister',
+      name: 'countPiece',
       data: {
-        collectionName: 'packCollection',
+        collectionName: 'confirmation',
       },
       success: res => {
-        if(res.result.data.length != 0) {
-          wx.showModal({
-            title: '重复领取提示',
-            content: '你已经注册或者领取过，领取时间为\r\n' + res.result.data[0].time + '\r\n请找学联负责人确认',
-            showCancel: false,
-            confirmText: '阅',
-            success: function(res) {
-              wx.navigateBack({
-                delta: 1
-              })
-            },
-          })
-        }
+        this.setData({
+          amountGet: res.result.total
+        })
+      },
+      fail: res => {
+        console.log(res)
       }
     })
-
-    const db = wx.cloud.database()
-    db.collection('packCollection').count().then(
-      res => {
-        this.setData({
-          amountGet: res.total
-        })
-      }
-    )
   },
 
   /**
@@ -138,7 +141,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    
   },
 
   /**

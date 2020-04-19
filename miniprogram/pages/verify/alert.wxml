@@ -1,0 +1,4 @@
+<!--miniprogram/pages/verify/alert.wxml-->
+<text class="welcome">请出示页面领取</text>
+<text class="time">{{time}}</text>
+<text class="openid">{{open_id}}</text>

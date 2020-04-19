@@ -34,6 +34,7 @@ Page({
         })
       }
     })
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -53,6 +54,9 @@ Page({
             }
           })
         }
+      },
+      fail: res => {
+        console.log(res)
       }
     })
   },

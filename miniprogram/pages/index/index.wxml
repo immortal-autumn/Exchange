@@ -19,7 +19,7 @@
 
   <!-- 领取登记 -->
   <view class="uploader">
-    <navigator class="uploader-text" url="../lovePack/packInfo">
+    <navigator class="uploader-text" catchtap="onGetUserInfo" url="../lovePack/packInfo">
       <text>防疫包领取登记</text>
     </navigator>
   </view>
@@ -40,7 +40,7 @@
   
   <!-- 疫情地图 -> 待制作 -->
   <view class="uploader" hidden="true">
-    <navigator class="uploader-text" url="../map/map">
+    <navigator class="uploader-text" url="../verify/alert">
       <text>疫情地图</text>
     </navigator>
   </view>
